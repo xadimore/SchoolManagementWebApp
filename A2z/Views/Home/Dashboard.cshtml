@@ -1,0 +1,349 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> signInManager;
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = null;
+}
+
+    <head>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+
+        <link href="~/lib/font-awesome/css/fontawesome.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    </head>
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 costombg text-center ">
+
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-white pt-3 ">Admin Portal</h4>
+                </div>
+
+            </div>
+
+            <div class="row text-white" style="background-color:#272B34">
+                <button class="accordion text-white border-0" style="background-color: #323844"><span><img src="~/Images/icons8-dashboard-100.png" height="35" /></span>Admin Dashboard 
+                <i class="fas fa-uber"></i> </button>
+                <div class="panel border-0" style="background-color:#272B34">
+                    <ul class="navbar-nav text-left">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Dashboard">Admin Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Students" asp-action="Create">Add Student</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Employees" asp-action="Create">Add Employee</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="students" asp-action="Index">Student Details</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Employees" asp-action="Index">Employee Details</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+               
+
+                <button class="accordion text-white" style="background-color:#272B34"><span><img src="~/Images/icons8-student-male-100.png" height="35" /></span>Students</button>
+                <div class="panel" style="background-color:#272B34">
+                    <ul class="navbar-nav text-left">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Dashboard">Register for Course</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Withdraw Course</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">View Result</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <button class="accordion text-white" style="background-color:#272B34"><span><img src="~/Images/icons8-name-tag-100.png" height="35" /></span>Employees</button>
+                <div class="panel" style="background-color:#272B34">
+                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+
+                <button class="accordion text-light" style="background-color:#272B34"><span><img src="~/Images/icons8-dashboard-100.png" height="35" /></span>Parents</button>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+
+                <button class="accordion text-white" style="background-color:#272B34"><span><img src="~/Images/icons8-dashboard-100.png" height="35" /></span>Academic</button>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+
+                <button class="accordion text-white" style="background-color:#272B34"><span><img src="~/Images/icons8-dashboard-100.png" height="35" /></span>Timetable</button>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+
+                @if (signInManager.IsSignedIn(User))
+                {
+                        <form asp-action="Signout" asp-controller="Account">
+                            <button class="accordion text-white" style="background-color:#272B34"><span><img src="~/Images/icons8-gear-50.png" height="35" /></span>Sign Out</button>
+                        </form>
+                }
+
+                else
+                {
+
+                }
+
+
+
+
+            </div>
+
+        </div>
+
+
+        <div class="col-10 text-right">
+            <div class="row">
+                <div class="col">
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        <h5 class="pr-5"><img src="~/Images/icons8-user-male-50.png" />@User.Identity.Name</h5>
+                        
+                    }
+
+                    else
+                    {
+                        <h5 class="pr-5"><img src="~/Images/icons8-user-male-50.png" />User 3</h5>
+                    }
+
+                </div>
+
+            </div>
+            <div class="bg-light p-2">
+                <div class="card-group">
+                    <div class="card bg-white border-left-0 border-bottom-0 border-top-0 border-right border-primary">
+                        <div class="card-body text-center">
+                            <div class="row">
+                                <div class="col-5">
+                                    <img src="~/Images/icons8-student-male-100.png" class="img-fluid" />
+                                </div>
+                                <div class="col-7 align-self-center">
+                                    <h1 class="m-0 p-0 font-weight-bolder">@ViewBag.StudentCount</h1>
+                                    <small class="mt-0 p-0">Total Students</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-white border-left-0 border-bottom-0 border-top-0 border-right border-success">
+                        <div class="card-body text-center">
+                            <div class="row">
+                                <div class="col-5">
+                                    <img src="~/Images/icons8-hard-working-96.png" class="img-fluid" />
+                                </div>
+                                <div class="col-7 align-self-center">
+                                    <h1 class="m-0 p-0 font-weight-bolder">@ViewBag.Employee</h1>
+                                    <small class="mt-0 p-0">Total Employees</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-white border-left-0 border-bottom-0 border-top-0 border-right border-info">
+                        <div class="card-body text-center">
+                            <div class="row">
+                                <div class="col-5">
+                                    <img src="~/Images/icons8-jingle-bell-100.png" class="img-fluid" />
+                                </div>
+                                <div class="col-7 align-self-center">
+                                    <h1 class="m-0 p-0 font-weight-bolder">@ViewBag.Course</h1>
+                                    <small class="mt-0 p-0">Total Courses</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-white border-left-0 border-bottom-0 border-top-0 border-right border-danger">
+                        <div class="card-body text-center">
+                            <div class="row">
+                                <div class="col-5">
+                                    <img src="~/Images/icons8-student-male-100.png" class="img-fluid" />
+                                </div>
+                                <div class="col-7 align-self-center">
+                                    <h1 class="m-0 p-0 font-weight-bolder">@ViewBag.Rc</h1>
+                                    <small class="mt-0 p-0">Total Registered Courses</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-lg-8">
+                        <div class="row p-3">
+                            <div class="col-lg-12">
+                                <div class="bg-white text-left row">
+                                    <h4 class="p-3">Newly Added Students</h4>
+                                </div>
+
+                                @foreach (var student in ViewBag.StudentsList)
+                                {
+                            <div class="row bg-white mt-2">
+                                <div class="col-3">
+                                    @if (student.Gender == "Male")
+                                    {
+                                        <img src="~/Images/Students/SJP_0424a-Medium.jpg" class="img-fluid" />
+                                    }
+
+                                    else
+                                    {
+                                        <img src="~/Images/Students/images.jpg" class="img-fluid" />
+                                    }
+
+                                </div>
+                                <div class="col-6 align-self-cente text-left">
+                                    <h1 class="m-0 p-0 font-weight-bolder">@student.FirstName @student.Lastname</h1><br />
+                                    <small class="mt-0 p-0">@student.Email</small><br />
+                                    <small class="mt-0 p-0">@student.Telephone</small><br />
+                                    <small class="mt-0 p-0">Student ID : @student.Gender</small><br />
+                                    <small class="mt-0 p-0">Class : @student.Class</small><br />
+                                </div>
+
+                                <div class="col-3 text-left">
+                                    <p class="font-weight-bolder m-0 p-0">Registred Courses</p>
+                                    @foreach(var subject in ViewBag.registeredCourse)
+                                    {
+                                        @if(subject.StundentID == student.Id)
+                                        {
+                                            <ul class="m-0 p-0">
+                                                <li class="p-0 m-0"><small class="m-0 p-0">@subject.RegistredCourse </small></li>
+                                            </ul>
+                                            
+                                        };
+                                    }
+
+                                    <br />
+                                    <a class="btn bg-danger text-white " asp-action="Create" asp-controller="StudentCourses">Add Subject</a>
+                                </div>
+
+                               
+                            </div>
+
+                            
+
+                                }
+
+
+
+                            </div>
+
+                           
+                           
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="row p-3">
+                            <div class="col-6 p-2">
+                                <a asp-action="Create" asp-controller="Students" class="text-dark">
+                                    <div class="card bg-white border-0 rounded">
+                                        <div class="card-body text-center">
+                                            <img src="~/Images/icons8-plus-64.png" height="50" />
+                                            <p class="card-text mt-1">Add Students</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                            <div class="col-6 p-2">
+                                <a asp-action="Create" asp-controller="Employees" class="text-dark">
+                                    <div class="card bg-white border-0 rounded">
+                                        <div class="card-body text-center">
+                                            <img src="~/Images/icons8-plus1-64.png" height="50" />
+                                            <p class="card-text mt-1">Add Employee</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                            <div class="col-6 p-2">
+                                <a asp-action="Create" asp-controller="Courses" class="text-dark">
+                                    <div class="card bg-white border-0 rounded">
+                                        <div class="card-body text-center">
+                                            <img src="~/Images/icons8-add-property-64.png" height="50" />
+                                            <p class="card-text mt-1">Create Course </p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                            <div class="col-6 p-2">
+                                <a asp-action="Create" asp-controller="StudentCourses" class="text-dark">
+                                    <div class="card bg-white border-0 rounded">
+                                        <div class="card-body text-center">
+                                            <img src="~/Images/icons8-add-property-64.png" height="50" />
+                                            <p class="card-text mt-1">Add Course </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-6 p-2">
+                                <div class="card bg-white border-0 rounded">
+                                    <div class="card-body text-center">
+                                        <img src="~/Images/icons8-add-property-64.png" height="50" />
+                                        <p class="card-text mt-1">Plan Academic </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+           
+
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>

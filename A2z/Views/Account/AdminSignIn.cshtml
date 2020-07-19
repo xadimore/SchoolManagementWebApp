@@ -1,0 +1,34 @@
+﻿@model A2z.Library.ViewModels.SignInView
+@{
+    ViewData["Title"] = "AdminSignIn";
+}
+
+<h1>AdminSignIn</h1>
+
+<div class="container register-form">
+<div class="form">
+    <form asp-action="AdminSignin" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input asp-for="Email" type="text" class="form-control" placeholder="User Name" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Password" class="form-control" placeholder="Password" value="" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+                
+            </div>
+            <button class="btnSubmit">Sunbmit</button>
+            @*<button type="button" class="btnSubmit">Submit</button>*@
+        </div>
+    </form>
+
+
+</div>
+</div>
+

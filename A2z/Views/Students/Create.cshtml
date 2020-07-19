@@ -1,0 +1,148 @@
+﻿@model A2z.Library.Models.Student
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>AddStudent</h1>
+<form method="post" asp-action="Create">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row">
+        <div class="col-lg-6">
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">First Name</label>
+                    <input asp-for="FirstName" class="form-control" id="inputEmail4" placeholder="First Name">
+
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Last Name</label>
+                    <input asp-for="Lastname" class="form-control" id="inputPassword4" placeholder="Last Name">
+
+                    <span asp-validation-for="Lastname" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label asp-for="DateofBirth">Date of Birth</label>
+                    <input asp-for="DateofBirth" class="form-control" id="inputEmail4" placeholder="Date Of Birth">
+                    <span asp-validation-for="DateofBirth" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label asp-for="Gender">Gender</label>
+
+                    <select asp-for="Gender" class="form-control">
+                        <option selected>Choose...</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select>
+
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Blood Group</label>
+
+                    <select asp-for="BloodGroup" class="form-control">
+                        <option selected>Choose...</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="AB">AB</option>
+                        <option value="O">O</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Nationality</label>
+
+                    <select asp-for="Nationality" class="form-control">
+                        <option selected>Choose...</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="USA">United States of America</option>
+                        <option value="UK">United Kingdom</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Class">Class </label>
+
+                    <select asp-for="Class" class="form-control">
+                        <option selected>Choose...</option>
+                        <option value="1">Level 1</option>
+                        <option value="2">Level 2</option>
+                        <option value="3">Level 3</option>
+                        <option value="4">Level 4</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="Religion">Religion</label>
+
+                    <select asp-for="Religion" class="form-control">
+                        <option selected>Choose...</option>
+                        <option value="Muslim">Muslim</option>
+                        <option value="christian">Christian</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+        <div class="col-lg-6">
+            <h4>Contact Details</h4>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4"> Email</label>
+                    <input asp-for="Email" class="form-control" id="inputEmail4" placeholder="Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Telephone</label>
+                    <input asp-for="Telephone" class="form-control" id="inputPassword4" placeholder="Telephone">
+                    <span asp-validation-for="Telephone" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputEmail4">Address</label>
+
+                    <textarea asp-for="Address" class="form-control" placeholder="Address"></textarea>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <button class="btn btn-danger btn-lg text-white align-self-center">Add New Student</button>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
